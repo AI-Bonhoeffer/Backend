@@ -58,7 +58,7 @@ def process_user_input(user_input, is_verified=False):
 
     return responses, is_verified
 
-# ✅ Twilio Webhook Flask server (added without modifying any existing code)
+# ✅ Twilio Webhook Flask server (Render-compatible)
 if __name__ == "__main__":
     from flask import Flask, request
     from twilio.twiml.messaging_response import MessagingResponse
@@ -75,4 +75,6 @@ if __name__ == "__main__":
             twilio_resp.message(msg)
         return str(twilio_resp)
 
-    app.run(host="0.0.0.0", port=5000)
+    # ✅ Use Render's dynamic PORT
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
