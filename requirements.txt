@@ -3,6 +3,7 @@ twilio
 python-dotenv
 langchain
 langchain-huggingface
+langchain-community
 langchain-pinecone
 pinecone
 openai
