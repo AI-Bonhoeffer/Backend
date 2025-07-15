@@ -1,0 +1,8 @@
+flask
+twilio
+python-dotenv
+langchain
+langchain-huggingface
+langchain-pinecone
+pinecone
+openai
