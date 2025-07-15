@@ -62,6 +62,8 @@ def process_user_input(user_input, is_verified=False):
 if __name__ == "__main__":
     from flask import Flask, request
     from twilio.twiml.messaging_response import MessagingResponse
+    import os
+    import threading
 
     app = Flask(__name__)
 
@@ -75,6 +77,9 @@ if __name__ == "__main__":
             twilio_resp.message(msg)
         return str(twilio_resp)
 
-    port = int(os.environ.get("PORT", 5000))
-    print(f"🚀 Starting Flask server on port {port}")
-    app.run(host="0.0.0.0", port=port)
+    def start_flask():
+        port = int(os.environ.get("PORT", 5000))
+        print(f"🚀 Starting Flask server on port {port}")
+        app.run(host="0.0.0.0", port=port)
+
+    threading.Thread(target=start_flask).start()
