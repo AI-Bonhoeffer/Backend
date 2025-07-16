@@ -1,10 +1,8 @@
 flask
 twilio
 python-dotenv
+openai
+pinecone-client
 langchain
-langchain-huggingface
 langchain-community
 langchain-pinecone
-pinecone
-openai
-sentence-transformers
